@@ -21,9 +21,9 @@
                     <div class="row">
                        <div class="col-12">
                            <div class="form-group">
-                               <label for="user_name" class="text-small text-uppercase">USERNAME</label>
-                                   <input id="user_name" type="text" class="form-control form-control-lg @error('user_name') is-invalid @enderror" name="user_name" value="{{ old('user_name') }}" required autocomplete="user_name" autofocus>
-                                   @error('user_name')
+                               <label for="username" class="text-small text-uppercase">USERNAME</label>
+                                   <input id="username" type="text" class="form-control form-control-lg @error('username') is-invalid @enderror" name="username" value="{{ old('username') }}" required autocomplete="username" autofocus>
+                                   @error('username')
                                    <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
@@ -69,6 +69,10 @@
                                         {{ __('Forgot Your Password?') }}
                                     </a>
                                 @endif
+
+                            @if(Route::has('login'))
+                                <a class="btn btn-link" href="{{route('login')}}">{{__('Have an account?')}}</a>
+                            @endif
 
                         </div>
                             </div>

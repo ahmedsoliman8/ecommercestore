@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Permission;
 use App\Models\Role;
 use App\Models\User;
 use Carbon\Factory;
@@ -94,6 +95,136 @@ class EntrustSeeder extends Seeder
             ]);
             $randomCustomer->attachRole($customerRole);
         }
+
+
+       $manageMain= Permission::create([
+            'name'=>'main',
+            'display_name'=>'Main',
+            'route'=>'index',
+            'module'=>'index',
+            'as'=>'index',
+            'icon'=>'fas  fa-home',
+            'parent'=>'0',
+            'parent_original'=>'0',
+            'sidebar_link'=>'1',
+            'appear'=>'1',
+            'ordering'=>'1'
+        ]);
+
+        $manageMain->parent_show=$manageMain->id;
+        $manageMain->save();
+
+
+
+        //Product Categories
+        /////////////////////////////////////////////////////////////////////////////
+        $manageProductCategories= Permission::create(['name'=>'manage_product_categories',
+            'display_name'=>'Categories',
+            'route'=>'product_categories',
+            'module'=>'product_categories',
+            'as'=>'product_categories.index',
+            'icon'=>'fas  fa-file-archive',
+            'parent'=>'0',
+            'parent_original'=>'0',
+            'sidebar_link'=>'1',
+            'appear'=>'1',
+            'ordering'=>'5'
+        ]);
+
+        $manageProductCategories->parent_show=$manageProductCategories->id;
+        $manageProductCategories->save();
+
+        ############################################################################
+        $showProductCategories= Permission::create(['name'=>'show_product_categories',
+            'display_name'=>'Categories',
+            'route'=>'product_categories',
+            'module'=>'product_categories',
+            'as'=>'product_categories.index',
+            'icon'=>'fas  fa-file-archive',
+            'parent'=>$manageProductCategories->id,
+            'parent_original'=>$manageProductCategories->id,
+            'parent_show'=>$manageProductCategories->id,
+            'sidebar_link'=>'1',
+            'appear'=>'1'
+        ]);
+        ##########################################################################
+        $createProductCategories= Permission::create([
+            'name'=>'create_product_categories',
+            'display_name'=>'Create Category',
+            'route'=>'product_categories',
+            'module'=>'product_categories',
+            'as'=>'product_categories.create',
+            'icon'=>null,
+            'parent'=>$manageProductCategories->id,
+            'parent_original'=>$manageProductCategories->id,
+            'parent_show'=>$manageProductCategories->id,
+            'sidebar_link'=>'1',
+            'appear'=>'0'
+        ]);
+
+        ######################################################################
+        $displayProductCategories= Permission::create([
+            'name'=>'display_product_categories',
+            'display_name'=>'Display Category',
+            'route'=>'product_categories',
+            'module'=>'product_categories',
+            'as'=>'product_categories.show',
+            'icon'=>null,
+            'parent'=>$manageProductCategories->id,
+            'parent_original'=>$manageProductCategories->id,
+            'parent_show'=>$manageProductCategories->id,
+            'sidebar_link'=>'1',
+            'appear'=>'0'
+        ]);
+        ###########################################################################
+        $updateProductCategories= Permission::create([
+            'name'=>'update_product_categories',
+            'display_name'=>'Update Category',
+            'route'=>'product_categories',
+            'module'=>'product_categories',
+            'as'=>'product_categories.edit',
+            'icon'=>null,
+            'parent'=>$manageProductCategories->id,
+            'parent_original'=>$manageProductCategories->id,
+            'parent_show'=>$manageProductCategories->id,
+            'sidebar_link'=>'1',
+            'appear'=>'0'
+        ]);
+        ###########################################################################
+        $deleteProductCategories= Permission::create([
+            'name'=>'delete_product_categories',
+            'display_name'=>'Delete Category',
+            'route'=>'product_categories',
+            'module'=>'product_categories',
+            'as'=>'product_categories.destroy',
+            'icon'=>null,
+            'parent'=>$manageProductCategories->id,
+            'parent_original'=>$manageProductCategories->id,
+            'parent_show'=>$manageProductCategories->id,
+            'sidebar_link'=>'1',
+            'appear'=>'0'
+        ]);
+        ///////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     }
 }
