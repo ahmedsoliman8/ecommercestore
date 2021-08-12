@@ -5,13 +5,14 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Cviebrock\EloquentSluggable\Sluggable;
+use Nicolaslopezj\Searchable\SearchableTrait;
 
 
 class ProductCategory extends Model
 {
-    use HasFactory;
+    use HasFactory,Sluggable,SearchableTrait;
     protected $guarded=[];
-    use Sluggable;
+
 
     /**
      * Return the sluggable configuration array for this model.
@@ -25,6 +26,18 @@ class ProductCategory extends Model
                 'source' => 'name'
             ]
         ];
+    }
+
+
+    protected $searchable = [
+        'columns' => [
+            'product_categories.name' => 10,
+        ]
+    ];
+
+    public function status()
+    {
+        return $this->status ? 'Active' : 'Inactive';
     }
 
 
