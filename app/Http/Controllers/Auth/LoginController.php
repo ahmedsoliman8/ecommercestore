@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Cache;
 
 class LoginController extends Controller
 {
@@ -48,5 +50,13 @@ class LoginController extends Controller
         if (auth()->user()->roles()->first()->allowed_route != '' ){
             return $this->redirectTo=auth()->user()->roles()->first()->allowed_route.'/index';
         }
+    }
+
+
+    protected function loggedOut(Request $request)
+    {
+        Cache::forget('role_routes');
+        Cache::forget('user_routes');
+        Cache::forget('admin_side_menu');
     }
 }

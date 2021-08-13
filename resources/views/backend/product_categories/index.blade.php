@@ -4,12 +4,14 @@
         <div class="card-header py-3 d-flex">
             <h6 class="m-0 font-weight-bold text-primary">Product Categories</h6>
             <div class="ml-auto">
+                @ability('admin', 'delete_product_categories')
                 <a href="{{ route('admin.product_categories.create') }}" class="btn btn-primary">
                     <span class="icon text-white-50">
                         <i class="fa fa-plus"></i>
                     </span>
                     <span class="text">Add new category</span>
                 </a>
+                @endability
             </div>
         </div>
         @include('backend.product_categories.filter.filter')
