@@ -8,4 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 class Media extends Model
 {
     use HasFactory;
+
+    protected $guarded = [];
+
+    public function mediable(): MorphTo
+    {
+        return $this->morphTo();
+    }
 }

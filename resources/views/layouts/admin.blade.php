@@ -15,6 +15,7 @@
             rel="stylesheet">
     <link href="{{asset('backend/css/sb-admin-2.min.css')}}" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('backend/vendor/bootstrap-file-input/css/fileinput.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('backend/vendor/summernote/summernote-bs4.min.css') }}">
     @yield('styles')
 </head>
 <body id="page-top">
@@ -89,6 +90,7 @@
     <script src="{{ asset('backend/vendor/bootstrap-file-input/js/plugins/sortable.min.js') }}"></script>
     <script src="{{ asset('backend/vendor/bootstrap-file-input/js/fileinput.min.js') }}"></script>
     <script src="{{ asset('backend/vendor/bootstrap-file-input/themes/fas/theme.min.js') }}"></script>
+    <script src="{{ asset('backend/vendor/summernote/summernote-bs4.min.js') }}"></script>
 
 @yield('scripts')
 </body>
