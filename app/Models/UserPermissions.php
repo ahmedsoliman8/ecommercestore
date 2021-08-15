@@ -1,4 +1,4 @@
-<?php namespace App;
+<?php namespace App\Models;
 
 use App\Models\Permission;
 use App\Models\User;

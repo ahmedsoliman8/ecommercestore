@@ -20,6 +20,8 @@ use App\Http\Controllers\Backend\ProductController;
 use App\Http\Controllers\Backend\TagController;
 use App\Http\Controllers\Backend\ProductCouponController;
 use App\Http\Controllers\Backend\ProductReviewController;
+use App\Http\Controllers\Backend\CustomerController;
+use App\Http\Controllers\Backend\SupervisorController;
 
 Route::get('/', [FrontendController::class,'index'])->name('frontend.index');
 Route::get('/cart', [FrontendController::class,'cart'])->name('frontend.cart');
@@ -47,6 +49,16 @@ Route::group(['prefix'=>'admin','as'=>'admin.'],function (){
         Route::resource('tags',TagController::class);
         Route::resource('product_coupons', ProductCouponController::class);
         Route::resource('product_reviews', ProductReviewController::class);
+
+        //Customers
+        Route::resource('customers', CustomerController::class);
+        Route::post('/customers/remove-image', [CustomerController::class, 'remove_image'])->name('customers.remove_image');
+
+        //Supervisors
+        Route::resource('supervisors', SupervisorController::class);
+        Route::post('/supervisors/remove-image', [SupervisorController::class, 'remove_image'])->name('supervisors.remove_image');
+
+
     });
 
 

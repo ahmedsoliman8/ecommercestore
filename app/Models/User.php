@@ -7,12 +7,13 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Mindscms\Entrust\Traits\EntrustUserWithPermissionsTrait;
+use Nicolaslopezj\Searchable\SearchableTrait;
 
 
 class User extends Authenticatable implements  MustVerifyEmail
 {
-    use HasFactory, Notifiable;
-    use EntrustUserWithPermissionsTrait;
+    use HasFactory, Notifiable,SearchableTrait,EntrustUserWithPermissionsTrait;
+
 
     /**
      * The attributes that are mass assignable.
@@ -41,6 +42,22 @@ class User extends Authenticatable implements  MustVerifyEmail
         'password',
         'remember_token',
     ];
+
+    public $searchable = [
+        'columns' => [
+            'users.first_name' => 10,
+            'users.last_name' => 10,
+            'users.username' => 10,
+            'users.email' => 10,
+            'users.mobile' => 10,
+        ]
+    ];
+
+
+    public function status()
+    {
+        return $this->status ? 'Active' : 'Inactive';
+    }
 
     /**
      * The attributes that should be cast to native types.

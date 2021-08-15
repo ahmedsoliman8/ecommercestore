@@ -163,6 +163,9 @@
             </div>
         </li>
 
+
+        <li class="nav-item"><a class="nav-link"  href="{{route('admin.supervisors.index')}}">Supervisors</a></li>
+
         <div class="topbar-divider d-none d-sm-block"></div>
 
         <!-- Nav Item - User Information -->
