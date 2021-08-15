@@ -18,6 +18,8 @@ use App\Http\Controllers\Backend\BackendController;
 use  App\Http\Controllers\Backend\ProductCategoriesController;
 use App\Http\Controllers\Backend\ProductController;
 use App\Http\Controllers\Backend\TagController;
+use App\Http\Controllers\Backend\ProductCouponController;
+use App\Http\Controllers\Backend\ProductReviewController;
 
 Route::get('/', [FrontendController::class,'index'])->name('frontend.index');
 Route::get('/cart', [FrontendController::class,'cart'])->name('frontend.cart');
@@ -43,6 +45,8 @@ Route::group(['prefix'=>'admin','as'=>'admin.'],function (){
         Route::resource('products',ProductController::class);
         Route::post('/products/remove-image', [ProductController::class, 'remove_image'])->name('products.remove_image');
         Route::resource('tags',TagController::class);
+        Route::resource('product_coupons', ProductCouponController::class);
+        Route::resource('product_reviews', ProductReviewController::class);
     });
 
 

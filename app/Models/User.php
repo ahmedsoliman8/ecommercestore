@@ -54,4 +54,9 @@ class User extends Authenticatable implements  MustVerifyEmail
     public  function  getFullNameAttribute(){
         return ucfirst($this->first_name).' '.ucfirst($this->last_name);
     }
+
+
+    public  function reviews(){
+        return $this->hasMany(ProductReview::class);
+    }
 }

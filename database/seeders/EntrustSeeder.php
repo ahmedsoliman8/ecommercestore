@@ -403,6 +403,197 @@ class EntrustSeeder extends Seeder
 
 
 
+        //ProductCoupon
+        /////////////////////////////////////////////////////////////////////////////
+        $manageProductCoupons= Permission::create(['name'=>'manage_product_coupons',
+            'display_name'=>'Product Coupons',
+            'route'=>'product_coupons',
+            'module'=>'product_coupons',
+            'as'=>'product_coupons.index',
+            'icon'=>'fas  fa-file-archive',
+            'parent'=>'0',
+            'parent_original'=>'0',
+            'sidebar_link'=>'1',
+            'appear'=>'1',
+            'ordering'=>'20'
+        ]);
+
+        $manageProductCoupons->parent_show=$manageProductCoupons->id;
+        $manageProductCoupons->save();
+
+        ############################################################################
+        $showProductCoupons= Permission::create(['name'=>'show_product_coupons',
+            'display_name'=>'Product Coupons',
+            'route'=>'product_coupons',
+            'module'=>'product_coupons',
+            'as'=>'product_coupons.index',
+            'icon'=>'fas  fa-file-archive',
+            'parent'=>$manageProductCoupons->id,
+            'parent_original'=>$manageProductCoupons->id,
+            'parent_show'=>$manageProductCoupons->id,
+            'sidebar_link'=>'1',
+            'appear'=>'1'
+        ]);
+        ##########################################################################
+        $createProductCoupons= Permission::create([
+            'name'=>'create_product_coupons',
+            'display_name'=>'Create Product Coupon',
+            'route'=>'product_coupons',
+            'module'=>'product_coupons',
+            'as'=>'product_coupons.create',
+            'icon'=>null,
+            'parent'=>$manageProductCoupons->id,
+            'parent_original'=>$manageProductCoupons->id,
+            'parent_show'=>$manageProductCoupons->id,
+            'sidebar_link'=>'1',
+            'appear'=>'0'
+        ]);
+
+        ######################################################################
+        $displayProductCoupons= Permission::create([
+            'name'=>'display_product_coupons',
+            'display_name'=>'Display Product Coupon',
+            'route'=>'product_coupons',
+            'module'=>'product_coupons',
+            'as'=>'product_coupons.show',
+            'icon'=>null,
+            'parent'=>$manageProductCoupons->id,
+            'parent_original'=>$manageProductCoupons->id,
+            'parent_show'=>$manageProductCoupons->id,
+            'sidebar_link'=>'1',
+            'appear'=>'0'
+        ]);
+        ###########################################################################
+        $updateProductCoupons= Permission::create([
+            'name'=>'update_product_coupons',
+            'display_name'=>'Update Product Coupon',
+            'route'=>'product_coupons',
+            'module'=>'product_coupons',
+            'as'=>'product_coupons.edit',
+            'icon'=>null,
+            'parent'=>$manageProductCoupons->id,
+            'parent_original'=>$manageProductCoupons->id,
+            'parent_show'=>$manageProductCoupons->id,
+            'sidebar_link'=>'1',
+            'appear'=>'0'
+        ]);
+        ###########################################################################
+        $deleteProductCoupons= Permission::create([
+            'name'=>'delete_product_coupons',
+            'display_name'=>'Delete Product Coupon',
+            'route'=>'product_coupons',
+            'module'=>'product_coupons',
+            'as'=>'product_coupons.destroy',
+            'icon'=>null,
+            'parent'=>$manageProductCoupons->id,
+            'parent_original'=>$manageProductCoupons->id,
+            'parent_show'=>$manageProductCoupons->id,
+            'sidebar_link'=>'1',
+            'appear'=>'0'
+        ]);
+        ///////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+
+
+        //ProductReview
+        /////////////////////////////////////////////////////////////////////////////
+        $manageProductReviews= Permission::create(['name'=>'manage_product_reviews',
+            'display_name'=>'Product Reviews',
+            'route'=>'product_reviews',
+            'module'=>'product_reviews',
+            'as'=>'product_reviews.index',
+            'icon'=>'fas fa-comment',
+            'parent'=>'0',
+            'parent_original'=>'0',
+            'sidebar_link'=>'1',
+            'appear'=>'1',
+            'ordering'=>'20'
+        ]);
+
+        $manageProductReviews->parent_show=$manageProductReviews->id;
+        $manageProductReviews->save();
+
+        ############################################################################
+        $showProductReviews= Permission::create(['name'=>'show_product_reviews',
+            'display_name'=>'Product Reviews',
+            'route'=>'product_reviews',
+            'module'=>'product_reviews',
+            'as'=>'product_reviews.index',
+            'icon'=>'fas fa-comment',
+            'parent'=>$manageProductReviews->id,
+            'parent_original'=>$manageProductReviews->id,
+            'parent_show'=>$manageProductReviews->id,
+            'sidebar_link'=>'1',
+            'appear'=>'1'
+        ]);
+        ##########################################################################
+        $createProductReviews= Permission::create([
+            'name'=>'create_product_reviews',
+            'display_name'=>'Create Product Review',
+            'route'=>'product_reviews',
+            'module'=>'product_reviews',
+            'as'=>'product_reviews.create',
+            'icon'=>null,
+            'parent'=>$manageProductReviews->id,
+            'parent_original'=>$manageProductReviews->id,
+            'parent_show'=>$manageProductReviews->id,
+            'sidebar_link'=>'1',
+            'appear'=>'0'
+        ]);
+
+        ######################################################################
+        $displayProductReviews= Permission::create([
+            'name'=>'display_product_reviews',
+            'display_name'=>'Display Product Review',
+            'route'=>'product_reviews',
+            'module'=>'product_reviews',
+            'as'=>'product_reviews.show',
+            'icon'=>null,
+            'parent'=>$manageProductReviews->id,
+            'parent_original'=>$manageProductReviews->id,
+            'parent_show'=>$manageProductReviews->id,
+            'sidebar_link'=>'1',
+            'appear'=>'0'
+        ]);
+        ###########################################################################
+        $updateProductReviews= Permission::create([
+            'name'=>'update_product_reviews',
+            'display_name'=>'Update Product Review',
+            'route'=>'product_reviews',
+            'module'=>'product_reviews',
+            'as'=>'product_reviews.edit',
+            'icon'=>null,
+            'parent'=>$manageProductReviews->id,
+            'parent_original'=>$manageProductReviews->id,
+            'parent_show'=>$manageProductReviews->id,
+            'sidebar_link'=>'1',
+            'appear'=>'0'
+        ]);
+        ###########################################################################
+        $deleteProductReviews= Permission::create([
+            'name'=>'delete_product_reviews',
+            'display_name'=>'Delete Product Review',
+            'route'=>'product_reviews',
+            'module'=>'product_reviews',
+            'as'=>'product_reviews.destroy',
+            'icon'=>null,
+            'parent'=>$manageProductReviews->id,
+            'parent_original'=>$manageProductReviews->id,
+            'parent_show'=>$manageProductReviews->id,
+            'sidebar_link'=>'1',
+            'appear'=>'0'
+        ]);
+        ///////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+
+
+
+
+
 
 
 

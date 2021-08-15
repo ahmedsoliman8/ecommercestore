@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\ProductReview;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -20,5 +21,7 @@ class DatabaseSeeder extends Seeder
         $this->call(ProductSeeder::class);
         $this->call(ProductsTagsSeeder::class);
         $this->call(ProductsImagesSeeder::class);
+        $this->call(ProductCouponSeeder::class);
+        $this->call(ProductReviewSeeder::class);
     }
 }

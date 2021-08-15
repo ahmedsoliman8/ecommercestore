@@ -64,5 +64,9 @@ class Product extends Model
         return $this->MorphMany(Media::class, 'mediable');
     }
 
+    public  function reviews(){
+        return $this->hasMany(ProductReview::class);
+    }
+
 
 }
