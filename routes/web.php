@@ -22,6 +22,9 @@ use App\Http\Controllers\Backend\ProductCouponController;
 use App\Http\Controllers\Backend\ProductReviewController;
 use App\Http\Controllers\Backend\CustomerController;
 use App\Http\Controllers\Backend\SupervisorController;
+use App\Http\Controllers\Backend\CountryController;
+use App\Http\Controllers\Backend\StateController;
+use App\Http\Controllers\Backend\CityController;
 
 Route::get('/', [FrontendController::class,'index'])->name('frontend.index');
 Route::get('/cart', [FrontendController::class,'cart'])->name('frontend.cart');
@@ -57,6 +60,15 @@ Route::group(['prefix'=>'admin','as'=>'admin.'],function (){
         //Supervisors
         Route::resource('supervisors', SupervisorController::class);
         Route::post('/supervisors/remove-image', [SupervisorController::class, 'remove_image'])->name('supervisors.remove_image');
+
+        //Countries
+        Route::resource('countries', CountryController::class);
+
+        //States
+        Route::resource('states', StateController::class);
+
+        //Cities
+        Route::resource('cities', CityController::class);
 
 
     });
