@@ -164,6 +164,7 @@ class CustomerController extends Controller
 
     public function get_customers()
     {
+        //dd(\request()->input('query'));
         $customers = User::whereHas('roles', function ($query) {
             $query->where('name', 'customer');
         })

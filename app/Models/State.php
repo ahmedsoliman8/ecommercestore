@@ -11,6 +11,7 @@ use Nicolaslopezj\Searchable\SearchableTrait;
 class State extends Model
 {
     use HasFactory, SearchableTrait;
+    protected  $table='states';
     protected $guarded = [];
 
     public $searchable = [
@@ -34,5 +35,10 @@ class State extends Model
     public function country(): BelongsTo
     {
         return $this->belongsTo(Country::class);
+    }
+
+    public function addresses(): HasMany
+    {
+        return $this->hasMany(UserAddress::class);
     }
 }

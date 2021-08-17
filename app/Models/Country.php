@@ -10,6 +10,7 @@ use Nicolaslopezj\Searchable\SearchableTrait;
 class Country extends Model
 {
     use HasFactory, SearchableTrait;
+    protected  $table='countries';
     protected $guarded = [];
 
     public $searchable = [
@@ -28,5 +29,10 @@ class Country extends Model
     public function states(): HasMany
     {
         return $this->hasMany(State::class);
+    }
+
+    public function addresses(): HasMany
+    {
+        return $this->hasMany(UserAddress::class);
     }
 }
