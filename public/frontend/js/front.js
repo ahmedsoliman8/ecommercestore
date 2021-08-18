@@ -26,7 +26,7 @@ $(function () {
     /* ===============================================================
          PRODUCT QUNATITY
       =============================================================== */
-      $('.dec-btn').click(function () {
+      /*$('.dec-btn').click(function () {
           var siblings = $(this).siblings('input');
           if (parseInt(siblings.val(), 10) >= 1) {
               siblings.val(parseInt(siblings.val(), 10) - 1);
@@ -36,7 +36,7 @@ $(function () {
       $('.inc-btn').click(function () {
           var siblings = $(this).siblings('input');
           siblings.val(parseInt(siblings.val(), 10) + 1);
-      });
+      });*/
 
 
       /* ===============================================================
@@ -69,9 +69,9 @@ $(function () {
 /* ===============================================================
      COUNTRY SELECT BOX FILLING
   =============================================================== */
-$.getJSON('js/countries.json', function (data) {
+/*$.getJSON('js/countries.json', function (data) {
     $.each(data, function (key, value) {
         var selectOption = "<option value='" + value.name + "' data-dial-code='" + value.dial_code + "'>" + value.name + "</option>";
         $("select.country").append(selectOption);
     });
-})
+})*/

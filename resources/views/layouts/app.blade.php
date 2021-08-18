@@ -24,10 +24,13 @@
     <link rel="stylesheet" href="{{asset('frontend/css/style.default.css')}}" id="theme-stylesheet">
     <link rel="stylesheet" href="{{asset('frontend/css/custom.css')}}">
     <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]-->
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <livewire:styles/>
+    @yield('styles')
+
 </head>
 <body>
-    <div id="app" class="page-holder {{request()->routeIs('frontend.detail')?'bg-light':null}}">
+    <div id="app" class="page-holder {{request()->routeIs('frontend.product')?'bg-light':null}}">
         @include('partials.frontend.header')
         {{--
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
@@ -94,9 +97,11 @@
 
     @include('partials.frontend.model')
     <!-- Scripts -->
+    <livewire:scripts/>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10">
+    </script>
+    <x-livewire-alert::scripts />
     <script src="{{ asset('js/app.js') }}" ></script>
-
-
     <script src="{{asset('frontend/vendor/lightbox2/js/lightbox.min.js')}}"></script>
     <script src="{{asset('frontend/vendor/nouislider/nouislider.min.js')}}"></script>
     <script src="{{asset('frontend/vendor/bootstrap-select/js/bootstrap-select.min.js')}}"></script>
@@ -121,7 +126,8 @@
         injectSvgSprite('https://bootstraptemple.com/files/icons/orion-svg-sprite.svg');
 
     </script>
-
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+    @yield('scripts')
+
 </body>
 </html>

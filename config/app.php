@@ -233,6 +233,9 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
         'Entrust'   => Mindscms\Entrust\EntrustFacade::class,
         'Image' => Intervention\Image\Facades\Image::class,
+        //Cart
+        'Cart' => Gloudemans\Shoppingcart\Facades\Cart::class,
+
 
     ],
 
