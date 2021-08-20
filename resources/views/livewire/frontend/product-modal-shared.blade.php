@@ -25,7 +25,7 @@
                         </div>
                         <div class="col-lg-6">
                             <button class="close p-4" type="button" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
-                            <div class="p-5 my-md-4">
+                            <div  class="p-5 my-md-4">
                                 <ul class="list-inline mb-2">
                                     @if($productModal->reviews_avg_rating != '')
                                         @for($i=0;$i<5;$i++)

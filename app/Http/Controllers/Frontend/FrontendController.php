@@ -14,6 +14,14 @@ class FrontendController extends Controller
         return view('frontend.index', compact('product_categories'));
     }
 
+    public function  shop($slug=null){
+        return view('frontend.shop',compact('slug'));
+    }
+
+    public  function  shop_tag ($slug=null){
+        return view('frontend.shop_tag',compact('slug'));
+    }
+
     public function  cart(){
         return view('frontend.cart');
     }
@@ -33,16 +41,5 @@ class FrontendController extends Controller
         return view('frontend.product', compact('product', 'relatedProducts'));
 
     }
-
-    public function  shop(){
-        return view('frontend.shop');
-    }
-
-
-
-
-
-
-
 
 }

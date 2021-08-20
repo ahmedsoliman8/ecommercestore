@@ -53,7 +53,7 @@
                 <li class="px-3 py-2 mb-1 bg-white text-muted">
                   <strong class="text-uppercase text-dark">Tags:</strong>
                   @foreach($product->tags as $tag)
-                  <a class="reset-anchor ml-2" href="#">{{$tag->name}}</a>
+                  <a class="reset-anchor ml-2" href="{{route('frontend.shop_tag',$tag->slug)}}">{{$tag->name}}</a>
                   @endforeach
                 </li>
               </ul>

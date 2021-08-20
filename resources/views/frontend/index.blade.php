@@ -19,22 +19,22 @@
           </header>
           <div class="row">
             <div class="col-md-4 mb-4 mb-md-0">
-              <a class="category-item" href="{{route('frontend.product',$product_categories[0]->slug)}}">
+              <a class="category-item" href="{{route('frontend.shop',$product_categories[0]->slug)}}">
                 <img class="img-fluid" src="{{asset('assets/product_categories/'.$product_categories[0]->cover)}}" alt="">
                 <strong class="category-item-title">{{$product_categories[0]->name}}</strong>
               </a>
             </div>
             <div class="col-md-4 mb-4 mb-md-0">
-              <a class="category-item mb-4" href="{{route('frontend.product',$product_categories[1]->slug)}}">
+              <a class="category-item mb-4" href="{{route('frontend.shop',$product_categories[1]->slug)}}">
                 <img class="img-fluid" src="{{asset('assets/product_categories/'.$product_categories[1]->cover)}}" alt="">
                 <strong class="category-item-title">{{$product_categories[1]->name}}</strong>
               </a>
-              <a class="category-item" href="{{route('frontend.product',$product_categories[2]->slug)}}"><img class="img-fluid"  src="{{asset('assets/product_categories/'.$product_categories[2]->cover)}}" alt="">
+              <a class="category-item" href="{{route('frontend.shop',$product_categories[2]->slug)}}"><img class="img-fluid"  src="{{asset('assets/product_categories/'.$product_categories[2]->cover)}}" alt="">
                 <strong class="category-item-title">{{$product_categories[2]->name}}</strong>
               </a>
             </div>
             <div class="col-md-4">
-              <a class="category-item" href="{{route('frontend.product',$product_categories[3]->slug)}}">
+              <a class="category-item" href="{{route('frontend.shop',$product_categories[3]->slug)}}">
                 <img class="img-fluid" src="{{asset('assets/product_categories/'.$product_categories[3]->cover)}}" alt="">
                 <strong class="category-item-title">{{$product_categories[3]->name}}</strong>
               </a>

@@ -66,7 +66,7 @@ class LoginController extends Controller
     {
         $cart = collect($request->session()->get('cart'));
 
-        //dd($cart);
+       // dd($cart);
 
         /* Call original logout method */
         $response = $this->originalLogout($request);
