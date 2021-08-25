@@ -101,6 +101,8 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10">
     </script>
     <x-livewire-alert::scripts />
+   @include('sweetalert::alert', ['cdn' => "https://cdn.jsdelivr.net/npm/sweetalert2@9"])
+
     <script src="{{ asset('js/app.js') }}" ></script>
     <script src="{{asset('frontend/vendor/lightbox2/js/lightbox.min.js')}}"></script>
     <script src="{{asset('frontend/vendor/nouislider/nouislider.min.js')}}"></script>

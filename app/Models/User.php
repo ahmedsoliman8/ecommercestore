@@ -8,6 +8,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Mindscms\Entrust\Traits\EntrustUserWithPermissionsTrait;
 use Nicolaslopezj\Searchable\SearchableTrait;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 
 class User extends Authenticatable implements  MustVerifyEmail
@@ -75,5 +76,14 @@ class User extends Authenticatable implements  MustVerifyEmail
 
     public  function reviews(){
         return $this->hasMany(ProductReview::class);
+    }
+
+    public function addresses(): HasMany
+    {
+        return $this->hasMany(UserAddress::class);
+    }
+    public function orders(): HasMany
+    {
+        return $this->hasMany(Order::class);
     }
 }

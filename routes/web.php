@@ -27,10 +27,24 @@ use App\Http\Controllers\Backend\StateController;
 use App\Http\Controllers\Backend\CityController;
 use App\Http\Controllers\Backend\CustomerAddressController;
 use App\Http\Controllers\Backend\ShippingCompanyController;
+use App\Http\Controllers\Backend\PaymentMethodController;
+use App\Http\Controllers\Frontend\PaymentController;
 
 Route::get('/', [FrontendController::class,'index'])->name('frontend.index');
 Route::get('/cart', [FrontendController::class,'cart'])->name('frontend.cart');
-Route::get('/checkout', [FrontendController::class,'checkout'])->name('frontend.checkout');
+
+//Checkout
+Route::group(['middleware'=>['roles','role:customer']],function (){
+
+    Route::get('/checkout', [PaymentController::class, 'checkout'])->name('frontend.checkout');
+    Route::post('/checkout/payment', [PaymentController::class, 'checkout_now'])->name('checkout.payment');
+    Route::get('/checkout/{order_id}/cancelled', [PaymentController::class, 'cancelled'])->name('checkout.cancel');
+    Route::get('/checkout/{order_id}/completed', [PaymentController::class, 'completed'])->name('checkout.complete');
+    Route::get('/checkout/webhook/{order?}/{env?}', [PaymentController::class, 'webhook'])->name('checkout.webhook.ipn');
+});
+
+
+
 
 
 //Product
@@ -38,6 +52,11 @@ Route::get('/product/{slug?}', [FrontendController::class,'product'])->name('fro
 //Shop
 Route::get('/shop/{slug?}', [FrontendController::class,'shop'])->name('frontend.shop');
 Route::get('/shop/tags/{slug}', [FrontendController::class,'shop_tag'])->name('frontend.shop_tag');
+
+//WishList
+Route::get('/wishlist', [FrontendController::class,'wishlist'])->name('frontend.wishlist');
+
+
 
 
 
@@ -87,6 +106,10 @@ Route::group(['prefix'=>'admin','as'=>'admin.'],function (){
         Route::resource('customer_addresses', CustomerAddressController::class);
         //Shipping Companies
         Route::resource('shipping_companies', ShippingCompanyController::class);
+        //Payment Method
+        Route::resource('payment_methods', PaymentMethodController::class);
+
+
 
     });
 
