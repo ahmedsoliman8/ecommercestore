@@ -210,6 +210,7 @@
             <div class="card-body">
                 <h5 class="text-uppercase mb-4">Your order</h5>
                 <ul class="list-unstyled mb-0">
+                    @if( $cart_subtotal !=0)
                     <li class="d-flex align-items-center justify-content-between"><strong class="small font-weight-bold">SUBTOTAL</strong><span class="text-muted small">${{$cart_subtotal}}</span></li>
                     @if(session()->has('coupon'))
                         <li class="border-bottom my-2"></li>
@@ -246,6 +247,13 @@
                             @endif
                         </form>
                     </li>
+
+                   @else
+                        <li class="align-items-center justify-content-center mb-4">
+                            <span>Your Cart Is Empty</span>
+                        </li>
+
+                    @endif
 
                 </ul>
             </div>

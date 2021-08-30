@@ -56,6 +56,7 @@ class Order extends Model
         return $this->currency == 'USD' ? '$' : $this->currency;
     }
 
+
     public function user(): BelongsTo
     {
         return $this->belongsTo(User::class);

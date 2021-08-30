@@ -10,18 +10,8 @@
                     <li class="nav-item">
                         <!-- Link--><a class="nav-link" href="{{route('frontend.shop')}}">Shop</a>
                     </li>
-                    <li class="nav-item">
-                        <!-- Link--><a class="nav-link" href="{{route('frontend.product')}}">Product detail</a>
-                    </li>
-                    <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" id="pagesDropdown" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Pages</a>
-                        <div class="dropdown-menu mt-3" aria-labelledby="pagesDropdown">
-                            <a class="dropdown-item border-0 transition-link" href="{{route('frontend.index')}}">Homepage</a>
-                            <a class="dropdown-item border-0 transition-link" href="{{route('frontend.shop')}}">Category</a>
-                            <a class="dropdown-item border-0 transition-link" href="{{route('frontend.product')}}">Product detail</a>
-                            <a class="dropdown-item border-0 transition-link" href="{{route('frontend.cart')}}">Shopping cart</a>
-                            <a class="dropdown-item border-0 transition-link" href="{{route('frontend.checkout')}}">Checkout</a>
-                        </div>
-                    </li>
+
+
                 </ul>
                 <ul class="navbar-nav ml-auto">
                     {{--  Cart --}}
@@ -45,7 +35,7 @@
                                 Welcome, {{auth()->user()->full_name }}
                             </a>
                             <div class="dropdown-menu mt-3" aria-labelledby="authDropDown">
-                                <a href="#" class="dropdown-item border-0">My Profile</a>
+                                <a href="{{route('customer.profile')}}" class="dropdown-item border-0">My Profile</a>
                                 <a href="javascript:void(0);"  onclick="event.preventDefault();document.getElementById('logout-form').submit()"
                                    class="dropdown-item border-0">Logout</a>
                                 <form action="{{route('logout')}}" method="post" id="logout-form" class="d-none">

@@ -68,6 +68,7 @@ class Kernel extends HttpKernel
         'role' => \Mindscms\Entrust\Middleware\EntrustRole::class,
         'permission' => \Mindscms\Entrust\Middleware\EntrustPermission::class,
         'ability' => \Mindscms\Entrust\Middleware\EntrustAbility::class,
+        'CheckCart'=>\App\Http\Middleware\CheckCart::class
 
 
     ];

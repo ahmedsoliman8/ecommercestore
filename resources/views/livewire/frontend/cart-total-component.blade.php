@@ -3,10 +3,16 @@
         <div class="card-body">
             <h5 class="text-uppercase mb-4">Cart total</h5>
             <ul class="list-unstyled mb-0">
+                @if( $cart_subtotal !=0)
                 <li class="d-flex align-items-center justify-content-between"><strong class="text-uppercase small font-weight-bold">Subtotal</strong><span class="text-muted small">${{$cart_subtotal}}</span></li>
                 <li class="border-bottom my-2"></li>
                 <li class="d-flex align-items-center justify-content-between mb-4"><strong class="text-uppercase small font-weight-bold">Total</strong><span>${{$cart_total}}</span></li>
                 <li class="d-flex align-items-center justify-content-between mb-4"><strong class="text-uppercase small font-weight-bold">Tax</strong><span>${{$cart_tax}}</span></li>
+                @else
+                    <li class="align-items-center justify-content-center mb-4">
+                        <span>Your Cart Is Empty</span>
+                    </li>
+                @endif
             </ul>
         </div>
     </div>
