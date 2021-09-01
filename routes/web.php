@@ -107,6 +107,8 @@ Route::group(['prefix'=>'admin','as'=>'admin.'],function (){
         Route::resource('cities', Backend\CityController::class);
         //CustomerAddresses
         Route::resource('customer_addresses', Backend\CustomerAddressController::class);
+        //Orders
+        Route::resource('orders', Backend\OrderController::class);
         //Shipping Companies
         Route::resource('shipping_companies', Backend\ShippingCompanyController::class);
         //Payment Method
