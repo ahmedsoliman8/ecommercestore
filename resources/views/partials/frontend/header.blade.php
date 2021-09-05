@@ -29,10 +29,13 @@
                         </li>
                      @else
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" id="authDropDown" data-toggle="dropdown"  aria-haspopup="true" aria-expanded="false"
-                              >
-                                <i class="fas fa-user-alt mr-1 text-gray"></i>
-                                Welcome, {{auth()->user()->full_name }}
+                            <livewire:frontend.header.notification-component />
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" id="authDropDown" data-toggle="dropdown"  aria-haspopup="true" aria-expanded="false">
+
+                               <i class="fas fa-user-alt mr-1 text-gray"></i>
+                               {{auth()->user()->full_name }}
                             </a>
                             <div class="dropdown-menu mt-3" aria-labelledby="authDropDown">
                                 <a href="{{route('customer.profile')}}" class="dropdown-item border-0">My Profile</a>

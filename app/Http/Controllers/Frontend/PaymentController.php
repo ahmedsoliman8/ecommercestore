@@ -8,6 +8,7 @@ use App\Models\OrderTransaction;
 use App\Models\Product;
 use App\Models\ProductCoupon;
 use App\Models\User;
+use App\Notifications\Frontend\Customer\OrderCreatedNotification;
 use App\Services\OmnipayService;
 use App\Services\OrderService;
 use Gloudemans\Shoppingcart\Facades\Cart;
@@ -97,13 +98,13 @@ class PaymentController extends Controller
                 'shipping',
             ]);
 
-           /* User::whereHas('roles', function($query) {
-                $query->whereIn('name', ['admin', 'supervisor']);
+           User::whereHas('roles', function($query) {
+                $query->whereIn('username', ['admin', 'supervisor']);
             })->each(function ($admin, $key) use ($order) {
                 $admin->notify(new OrderCreatedNotification($order));
             });
 
-
+            /*
             $data = $order->toArray();
             $data['currency_symbol'] = $order->currency == 'USD' ? '$' : $order->currency;
             $pdf = PDF::loadView('layouts.invoice', $data);

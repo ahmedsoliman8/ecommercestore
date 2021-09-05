@@ -11,6 +11,7 @@ use Nicolaslopezj\Searchable\SearchableTrait;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
 
+
 class User extends Authenticatable implements  MustVerifyEmail
 {
     use HasFactory, Notifiable,SearchableTrait,EntrustUserWithPermissionsTrait;
@@ -33,6 +34,12 @@ class User extends Authenticatable implements  MustVerifyEmail
     ];
 
     protected  $appends=['full_name'];
+
+
+    public function receivesBroadcastNotificationsOn(): string
+    {
+        return 'App.Models.User.' . $this->id;
+    }
 
     /**
      * The attributes that should be hidden for arrays.
