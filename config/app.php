@@ -167,6 +167,8 @@ return [
          */
         Mindscms\Entrust\EntrustServiceProvider::class,
         Intervention\Image\ImageServiceProvider::class,
+        Meneses\LaravelMpdf\LaravelMpdfServiceProvider::class,
+
 
         /*
          * Application Service Providers...
@@ -235,6 +237,8 @@ return [
         'Image' => Intervention\Image\Facades\Image::class,
         //Cart
         'Cart' => Gloudemans\Shoppingcart\Facades\Cart::class,
+        //PDF
+        'PDF' => Meneses\LaravelMpdf\Facades\LaravelMpdf::class
 
 
     ],

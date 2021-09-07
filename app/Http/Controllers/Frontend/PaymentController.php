@@ -9,10 +9,12 @@ use App\Models\Product;
 use App\Models\ProductCoupon;
 use App\Models\User;
 use App\Notifications\Frontend\Customer\OrderCreatedNotification;
+use App\Notifications\Frontend\Customer\OrderThanksNotification;
 use App\Services\OmnipayService;
 use App\Services\OrderService;
 use Gloudemans\Shoppingcart\Facades\Cart;
 use Illuminate\Http\Request;
+use Meneses\LaravelMpdf\Facades\LaravelMpdf as PDF;
 
 class PaymentController extends Controller
 {
@@ -104,15 +106,15 @@ class PaymentController extends Controller
                 $admin->notify(new OrderCreatedNotification($order));
             });
 
-            /*
+
             $data = $order->toArray();
             $data['currency_symbol'] = $order->currency == 'USD' ? '$' : $order->currency;
             $pdf = PDF::loadView('layouts.invoice', $data);
             $saved_file = storage_path('app/pdf/files/' . $data['ref_id'] . '.pdf');
             $pdf->save($saved_file);
 
-            $customer = User::find($order->user_id);
-            $customer->notify(new OrderThanksNotification($order, $saved_file));*/
+           $customer = User::find($order->user_id);
+           $customer->notify(new OrderThanksNotification($order, $saved_file));
 
 
             toast('Your recent payment is successful with reference code: ' . $response->getTransactionReference(), 'success');

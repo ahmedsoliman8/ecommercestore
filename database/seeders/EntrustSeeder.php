@@ -66,9 +66,9 @@ class EntrustSeeder extends Seeder
 
 
         $customer=User::create([
-            'first_name'=>'Customer',
-            'last_name'=>'System',
-            'username'=>'customer',
+            'first_name'=>'Ahmed',
+            'last_name'=>'Mahmoud',
+            'username'=>'ahmed',
             'email'=>'customer@gmail.com',
             'mobile'=>'01023860238',
             'email_verified_at'=>now(),
@@ -77,7 +77,10 @@ class EntrustSeeder extends Seeder
         ]);
         $customer->attachRole($customerRole);
 
-        for ($i=0;$i<=20;$i++){
+
+        User::factory()->count(1000)->hasAddresses(1)->create();
+
+      /*  for ($i=0;$i<=20;$i++){
 
             $randomCustomer=User::create([
                 'first_name'=>$faker->firstName,
@@ -90,7 +93,7 @@ class EntrustSeeder extends Seeder
                 'password'=>bcrypt("123456")
             ]);
             $randomCustomer->attachRole($customerRole);
-        }
+        }*/
 
 
        $manageMain= Permission::create([
